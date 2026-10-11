@@ -1,25 +1,26 @@
 <div align="center">
-  <h1><span style="color:#ff6b6b">VB Projects</span> <span style="color:#ffd166">✨</span></h1>
+  <h1>VB.NET Windows Forms Examples — Binary Clock in Visual Basic ✨</h1>
   <p>
-    <strong><span style="color:#7dd3fc">Visual Basic learning workspace</span> with small, interactive Windows Forms experiments.</strong>
+    <strong>Visual Basic learning workspace with small, interactive Windows Forms experiments.</strong>
   </p>
 </div>
 
 <p align="center">
-  <img alt="VB Projects banner" src="https://img.shields.io/badge/Language-Visual%20Basic-6f42c1?style=for-the-badge&logo=visual-studio-code" />
-  <img alt=".NET Framework" src="https://img.shields.io/badge/Framework-.NET%20Framework-512bd4?style=for-the-badge" />
-  <img alt="UI Type" src="https://img.shields.io/badge/UI-Windows%20Forms-0088cc?style=for-the-badge" />
+  <img alt="Language: Visual Basic" src="https://img.shields.io/badge/Language-Visual%20Basic-6f42c1?style=for-the-badge&logo=visual-studio-code" />
+  <img alt="Framework: .NET Framework" src="https://img.shields.io/badge/Framework-.NET%20Framework-512bd4?style=for-the-badge" />
+  <img alt="UI: Windows Forms" src="https://img.shields.io/badge/UI-Windows%20Forms-0088cc?style=for-the-badge" />
 </p>
 
 ## Overview
 
-This repository is a compact collection of Visual Basic projects focused on UI design, patterns, and experimentation in the classic Windows Forms ecosystem. It currently includes one polished sample project that demonstrates a dynamic binary-style time display with a custom visual effect.
+This repository is a compact collection of **Visual Basic .NET (VB.NET) Windows Forms** projects focused on UI design, patterns, and experimentation in the classic desktop ecosystem. It currently includes one sample project: a **binary clock** that shows the current hour, minute, and second as coloured binary blocks, updated live by a timer.
+
+It is useful if you are learning VB.NET and want a small, readable example of timer events, binary number conversion, and mouse-driven form interaction.
 
 ## Repository structure
 
 ```text
-VB_Projects/
-├── .git/
+vb_codes/
 ├── .gitignore
 ├── README.md
 └── Observer Pattern/
@@ -29,29 +30,35 @@ VB_Projects/
         ├── Observer UI.vbproj
         ├── Observer.vb
         ├── Observer.Designer.vb
-        ├── Observer.resx
-        └── bin/
+        └── Observer.resx
 ```
 
-## Featured project: Observer Pattern
+## Featured project: Binary clock (`Observer Pattern`)
 
 ### What it does
-The <span style="color:#00c2a8">Observer Pattern</span> project is a Windows Forms application that visualizes the current time using a binary-style layout:
 
-- <span style="color:#ff4d4d">Red</span> blocks represent the hour
-- <span style="color:#ffd166">Yellow</span> blocks represent the minute
-- <span style="color:#4ade80">Green</span> blocks represent the second
-- Each column reflects the binary weight of the time value
-- The interface updates in real time with a ticking clock
+The project in the `Observer Pattern` folder is a Windows Forms application (`FormBinary`) that visualizes the current time using a binary-style layout:
+
+- **Red** blocks represent the hour
+- **Yellow** blocks represent the minute
+- **Green** blocks represent the second
+- Each column reflects a binary weight from 32 down to 1, so six blocks can represent any value from 0 to 59
+- A label above the blocks also shows the time as text, and the display updates in real time
 
 ### Visual behavior
-- The form is draggable by mouse
+
+- The form is draggable with the left mouse button
 - Double-clicking the window closes the app
-- The timer continuously refreshes the display seconds by seconds
-- Binary logic is generated programmatically using power-of-two values
+- The timer refreshes the display every second
+- Binary digits are calculated programmatically by subtracting powers of two (`2 ^ n`)
 
 ### Core idea
-This project is a simple and intuitive example of using UI components, timer events, and custom drawing logic in VB.NET to build a live, animated interface without complex frameworks.
+
+This project is a simple and intuitive example of using UI components, timer events, and custom colouring logic in VB.NET to build a live, animated interface without complex frameworks.
+
+### How the binary conversion works
+
+On every timer tick, `SetColourIndex` takes the hour, minute, or second and walks the powers of two from `2 ^ 5` (32) down to `2 ^ 0` (1). Whenever the remaining value is at least the current power, that bit is switched on and the power is subtracted. `SetBackColour` then colours the matching blocks. For example, 45 seconds is `32 + 8 + 4 + 1`, so the 32, 8, 4, and 1 blocks turn green.
 
 ## Project details
 
@@ -66,19 +73,13 @@ This project is a simple and intuitive example of using UI components, timer eve
 
 ## How to run it
 
-### Option 1: Visual Studio
-1. Open `Observer Pattern.sln` in Visual Studio.
-2. Restore/build the solution.
+### Visual Studio
+
+1. Open `Observer Pattern/Observer Pattern.sln` in Visual Studio.
+2. Build the solution. If the .NET Framework 2.0 targeting pack is not installed, Visual Studio may offer to retarget the project to a newer .NET Framework version.
 3. Press `F5` to run the app.
 
-### Option 2: Open the built executable
-The project already includes a compiled binary in:
-
-```text
-Observer Pattern\Observer UI\bin\Release\Observer.exe
-```
-
-Double-click it to launch the app on a Windows machine.
+Compiled binaries are not stored in the repository, so build the project to get `Observer.exe` in the `bin` folder.
 
 ## Technologies used
 
@@ -109,9 +110,15 @@ This repository could grow with more Windows Forms experiments such as:
 - game UI prototypes
 - pattern-based visual demos
 
+## Related projects
+
+- [C# and .NET code examples](https://github.com/gcfernando/csharp_codes) — includes a high-DPI Windows Forms example in .NET 8
+- [Glass.Message](https://github.com/gcfernando/glass) — a modern `MessageBox` replacement for Windows Forms apps
+- [Spectrum](https://github.com/gcfernando/spectrum-analyzer) — a real-time audio spectrum analyzer built with Windows Forms
+
 ---
 
 <div align="center">
-  <h3><span style="color:#7c3aed">Built with passion for Visual Basic ✨</span></h3>
+  <h3>Built with passion for Visual Basic ✨</h3>
   <p><em>Small projects, bold ideas, and creative UI experiments.</em></p>
 </div>
