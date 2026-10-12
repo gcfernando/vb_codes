@@ -1,0 +1,24 @@
+# GitHub Pages documentation site; does not configure application deployment.
+url: "https://gcfernando.github.io"
+baseurl: "/vb_codes"
+title: "VB.NET Windows Forms Examples"
+description: "Visual Basic Windows Forms learning examples, including a binary clock displaying hours, minutes and seconds."
+lang: "en"
+plugins:
+  - jekyll-sitemap
+exclude:
+  - packages
+  - bin
+  - obj
+  - node_modules
+  - vendor
+  - tests
+  - .claude
+  - .agents
+  - .codex
+defaults:
+  - scope:
+      path: "README.md"
+    values:
+      title: "VB.NET Windows Forms Examples — Binary Clock in Visual Basic ✨"
+      description: "Visual Basic Windows Forms learning examples, including a binary clock displaying hours, minutes and seconds."
