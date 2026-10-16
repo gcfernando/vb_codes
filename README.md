@@ -42,7 +42,7 @@ The project in the `Observer Pattern` folder is a Windows Forms application (`Fo
 - **Red** blocks represent the hour
 - **Yellow** blocks represent the minute
 - **Green** blocks represent the second
-- Each column reflects a binary weight from 32 down to 1, so six blocks can represent any value from 0 to 59
+- The hour uses five blocks (weights 16, 8, 4, 2, 1); the minute and second each use six blocks (32, 16, 8, 4, 2, 1)
 - A label above the blocks also shows the time as text, and the display updates in real time
 
 ### Visual behavior
@@ -69,15 +69,17 @@ On every timer tick, `SetColourIndex` takes the hour, minute, or second and walk
 | Main file | `Observer Pattern/Observer UI/Observer.vb` |
 | Solution file | `Observer Pattern/Observer Pattern.sln` |
 | Build target | .NET Framework 2.0 |
-| Purpose | UI experiment / pattern demonstration |
+| Purpose | Timer-driven UI and binary-number demonstration |
 
 ## How to run it
 
 ### Visual Studio
 
-1. Open `Observer Pattern/Observer Pattern.sln` in Visual Studio.
-2. Build the solution. If the .NET Framework 2.0 targeting pack is not installed, Visual Studio may offer to retarget the project to a newer .NET Framework version.
+1. Use Windows and a Visual Studio/MSBuild installation that can build the project's legacy .NET Framework 2.0 target.
+2. Open `Observer Pattern/Observer Pattern.sln` and build the solution. Modern Visual Studio versions may require a separately reviewed retargeting change; this repository still targets .NET Framework 2.0.
 3. Press `F5` to run the app.
+
+The folder name `Observer Pattern` is historical. The implementation uses Windows Forms events and a timer; it does not define a separate subject/observer abstraction.
 
 Compiled binaries are not stored in the repository, so build the project to get `Observer.exe` in the `bin` folder.
 
