@@ -20,7 +20,7 @@ defaults:
   - scope:
       path: "README.md"
     values:
-      title: "VB.NET Windows Forms Examples — Binary Clock in Visual Basic ✨"
+      title: "VB.NET Windows Forms Examples — Binary Clock in Visual Basic"
       description: "Visual Basic Windows Forms learning examples, including a binary clock displaying hours, minutes and seconds."
 
 # Public documentation navigation and presentation.
